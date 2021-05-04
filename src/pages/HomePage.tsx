@@ -4,7 +4,7 @@ import { GlobalContext } from '../context/GlobalContext';
 import '../App.css';
 
 const HomePage = () => {
-  const { products, getProducts } = useContext(GlobalContext);
+  const { products, getProducts,roundDecimalsValues} = useContext(GlobalContext);
 
   useEffect(() => {
     getProducts();
@@ -22,7 +22,7 @@ const HomePage = () => {
         {products.map((product, i) => {
           return (
             <div className='col-sm-12 col-md-3 mb-3' key={i}>
-              <ProductCard product={product} />
+              <ProductCard roundDecimalsValues ={roundDecimalsValues} product={product} />
             </div>
           );
         })}
