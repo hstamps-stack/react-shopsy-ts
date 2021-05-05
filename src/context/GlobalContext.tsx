@@ -1,4 +1,5 @@
-import React, { createContext, useState, useReducer } from 'react';
+import React, { createContext,
+   useReducer } from 'react';
 import instance from '../api/apiConfig';
 
 // Initialize a default state for our app
@@ -8,6 +9,7 @@ const initialState = {
   product: undefined,
   getProducts: () => {},
   getSingleProduct: () => {},
+  roundDecimalsValues: () => {},
 };
 
 // Create our global reducer
@@ -65,6 +67,14 @@ export const GlobalProvider: React.FC = ({ children }) => {
     }
   };
 
+  const roundDecimalsValues = (priceTagNumber: number) =>{
+  const roundDecimalValue = priceTagNumber.toFixed(2);
+
+  return roundDecimalValue
+
+}
+
+
   return (
     <GlobalContext.Provider
       value={{
@@ -73,6 +83,7 @@ export const GlobalProvider: React.FC = ({ children }) => {
         product: state.product,
         getProducts,
         getSingleProduct,
+        roundDecimalsValues
       }}>
       {children} {/* <AppRouter/> */}
     </GlobalContext.Provider>

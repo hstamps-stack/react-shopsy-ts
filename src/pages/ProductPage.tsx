@@ -4,7 +4,7 @@ import { GlobalContext } from '../context/GlobalContext';
 import SingleProductCard from '../components/SingleProductCard';
 
 const ProductPage = () => {
-  const { product, getSingleProduct } = useContext(GlobalContext);
+  const { product, getSingleProduct,roundDecimalsValues } = useContext(GlobalContext);
   const { productId } = useParams<{ productId: string }>();
 
   useEffect(() => {
@@ -22,7 +22,7 @@ const ProductPage = () => {
   }
   return (
     <div>
-      <SingleProductCard product ={product}/>
+      <SingleProductCard  roundDecimalsValues= {roundDecimalsValues} product ={product}/>
     </div>
   );
 };

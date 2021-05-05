@@ -2,8 +2,10 @@ import {Link} from "react-router-dom";
 
 interface SingleCardProps {
     product: Product;
+    roundDecimalsValues: (priceTagNumber:number) =>void;
+
   }
-const SingleProductCard: React.FC<SingleCardProps>= ({product}) =>{
+const SingleProductCard: React.FC<SingleCardProps>= ({product, roundDecimalsValues}) =>{
     return (
         <div id='product'>
       {/* Breadcrumb */}
@@ -43,7 +45,7 @@ const SingleProductCard: React.FC<SingleCardProps>= ({product}) =>{
                   <h3 className='card-title'>
                     {product.title}
                     <div className=''>
-                      <small className='text-info'>${product.price}</small>
+                      <small className='text-info'>${roundDecimalsValues(+product.price)}</small>
                     </div>
                   </h3>
                   {/* product details */}
