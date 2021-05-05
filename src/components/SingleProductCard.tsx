@@ -1,4 +1,6 @@
 import {Link} from "react-router-dom";
+import {SetBadgeColor} from '../services';
+
 
 interface SingleCardProps {
     product: Product;
@@ -53,9 +55,9 @@ const SingleProductCard: React.FC<SingleCardProps>= ({product, roundDecimalsValu
                     <h4>Description</h4>
                     <p>{product.description}</p>
                     <div>
-                      <span className='badge badge-warning'>
-                        {product.category}
-                      </span>
+                    <span className={`badge ${SetBadgeColor(product.category)}`}>
+                         {product.category}
+                    </span>
                     </div>
                   </div>
                   {/* product add to cart */}
